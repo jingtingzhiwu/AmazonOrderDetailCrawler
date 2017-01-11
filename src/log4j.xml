@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- /var/wwwlog/spider -->
+	<appender name="appender" class="org.apache.log4j.FileAppender">
+		<param name="File" value="/OrderDetailCrawler-Log.txt" />
+		<param name="Append" value="false" />
+        <param name="encoding" value="utf-8"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p - %m%n" />
+		</layout>
+	</appender>
+	
+    <appender name="errorAppend" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/OrderDetailCrawler-Logext.txt" />
+        <param name="Append" value="true" />
+        <param name="encoding" value="utf-8"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p - %m%n" />
+		</layout>
+    </appender>
+	<root>
+		<priority value="info" />
+		<appender-ref ref="appender" />
+		<appender-ref ref="errorAppend" />
+	</root>
+</log4j:configuration>
